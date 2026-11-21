@@ -29,6 +29,8 @@ def build_entry() -> str:
 
 def main() -> None:
     entry = build_entry()
+    if not 1 <= len(entry) <= 280:
+        raise ValueError("entry must be 1-280 characters")
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(entry, encoding="utf-8")
 
